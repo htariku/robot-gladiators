@@ -198,4 +198,3 @@ var shop = function () {
       shop();
       break;
   }
-startGame(
