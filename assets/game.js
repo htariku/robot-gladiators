@@ -89,32 +89,16 @@ var fightOrSkip = function() {
     }
 
 var fight = function (enemy) {
-  console.log(enemy);
-};
+  var isPlayerTurn = true;
+  if (Math.random() > 0.5) {
+    isPlayerTurn = false;
+  }
   while (playerInfo.health > 0 && enemyHealth > 0) {
-    if (fightOrSkip()) {
+    if (isPlayerTurn) {
+if (fightOrSkip()) {
       break;
     }
-    var promptFight = window.prompt(
-      'Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.'
-    );
-
-    if (promptFight === "skip" || promptFight === "SKIP") {
-      var confirmSkip = window.confirm("Are you sure you'd like to quit?");
-
-      if (confirmSkip) {
-        window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
-
-        playerInfo.money = Math.max(0,playerInfo.money - 10);
-        console.log("playerMoney", playerInfo.money);
-        break;
-      }
-    }
-    var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
-    
-    var damage = randomNumber(enemyAttack - 3, enemyAttack);
-    playerInfo.health = Math.max(0, playerInfo.health- damage);
-    
+    var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack); 
     enemyHealth = Math.max(0, enemyHealth - damage);
     console.log(
       playerInfo.name +
@@ -126,7 +110,6 @@ var fight = function (enemy) {
         enemyHealth +
         " health remaining."
     );
-
     if (enemyHealth <= 0) {
       window.alert(enemyName + " has died!");
 
@@ -135,9 +118,11 @@ var fight = function (enemy) {
       break;
     } else {
       window.alert(enemyName + " still has " + enemyHealth + " health left.");
-    }
+    } 
+  } else {
+  var damage = randomNumber(enemy.attack - 3, enemy.attack);
+  playerInfo.health = math.max(0, playerInfo.health - damage);
 
-    playerInfo.health = Math.max(0, playerInfo.health - enemyAttack);
     console.log(
       enemyName +
         " attacked " +
@@ -154,8 +139,11 @@ var fight = function (enemy) {
 
       break;
     } else {
-      window.alert(playerInfo.name + " still has " + playerInfo.Health + " health left.");
+      window.alert(playerInfo.name + " still has " + playerInfo.health + " health left.");
     }
+  }
+  isPlayerTurn = !isPlayerTurn;
+}
 };
 
 var startGame = function () {
