@@ -2,11 +2,20 @@ var randomNumer = function(min, max) {
   var value = Math.floor(Math.random() * (max - min + 1 ) + min);
   return value; 
 }
+var getPlayerName = function() {
+  var name = "";
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  }
+  console.log("You robot's name is " + name);
+  return name; 
+};
+
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
-health = 100,
-attack = 10,
-money = 10,
+  name: getPlayerName(),
+health: 100,
+attack: 10,
+money: 10,
 reset: function() {
   this.health = 100; 
   this.money = 10;
@@ -16,8 +25,8 @@ reset: function() {
 refilllHealth: function() {
   if (this.money >= 7) {
     window.alert("Refilling player's health by 20 for 7 dollars.");
-  this. health += 20;
-  this. money -= 7;
+  this.health += 20;
+  this.money -= 7;
   }
   else {
     window.alert("You don't have enough money!");
@@ -30,7 +39,7 @@ upgradeAttack: function() {
   this .money -+ 7;
 }
 else {
-  window.alert("You don;t have enough money!");
+  window.alert("You don't have enough money!");
 }
 
 var randomNumber = function() {
@@ -60,6 +69,9 @@ console.loh(enemyInfo[0]['attck']);
 
 var enemyHealth = 50;
 var enemyAttack = 12;
+
+promptFight = promptFight.toLowerCase();
+if (promptFight === "skip") {
 
 var fightOrSkip = function() {
   var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.')
@@ -152,7 +164,7 @@ var startGame = function () {
   for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
-   
+      debugger;
 
       var pickedEnemyObj = enemyInfo[i];
 
@@ -204,30 +216,27 @@ var shop = function () {
   var shopOptionPrompt = window.prompt(
     'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
   );
-  
+  debugger;
   switch (shopOptionPrompt) {
-    case "REFILL":
-    case "refill":
+    case 1:
       playerInfo.refilllHealth();
       break;
-    case "UPGRADE":
-    case "upgrade":
+    case 2:
       playerInfo.upgradeAttack();
       break;
-    case "LEAVE":
-    case "leave":
+    case 3:
       window.alert("Leaving the store.");
       break;
     default:
       window.alert("You did not pick a valid option. Try again.");
-
       shop();
       break;
   }
 }
 };
 startGame();
-    }
-  }
+}
+}
+}
 }
 };
