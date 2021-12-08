@@ -209,11 +209,11 @@ var endGame = function () {
   }
 };
 
-var shop = function () {
-  var shopOptionPrompt = window.prompt(
-    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
-  );
+var shopOptionPrompt = window.prompt( 
+    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE."
+);
   debugger;
+  shopOptionPrompt = paeseInt(shopOptionPrompt);
   switch (shopOptionPrompt) {
     case 1:
       playerInfo.refilllHealth();
