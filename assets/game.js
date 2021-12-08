@@ -70,6 +70,9 @@ console.loh(enemyInfo[0]['attck']);
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+promptFight = promptFight.toLowerCase();
+if (promptFight === "skip") {
+
 var fightOrSkip = function() {
   var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.')
   if (promptFight === "" || promptFight === null) {
@@ -232,7 +235,8 @@ var shop = function () {
 }
 };
 startGame();
-    }
-  }
+}
+}
+}
 }
 };
