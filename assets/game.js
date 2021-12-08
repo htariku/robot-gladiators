@@ -70,6 +70,9 @@ console.loh(enemyInfo[0]['attck']);
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+promptFight = promptFight.toLowerCase();
+if (promptFight === "skip") {
+
 var fightOrSkip = function() {
   var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.')
   if (promptFight === "" || promptFight === null) {
@@ -161,7 +164,7 @@ var startGame = function () {
   for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
-   
+      debugger;
 
       var pickedEnemyObj = enemyInfo[i];
 
@@ -210,8 +213,8 @@ var endGame = function () {
 };
 
 var shopOptionPrompt = window.prompt( 
-    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE."
-);
+  "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
+  );
   debugger;
   shopOptionPrompt = paeseInt(shopOptionPrompt);
   switch (shopOptionPrompt) {
@@ -232,7 +235,7 @@ var shopOptionPrompt = window.prompt(
 }
 };
 startGame();
-    }
-  }
+}
+}
 }
 };
